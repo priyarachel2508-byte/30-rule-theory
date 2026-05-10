@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #3d342f;
+  background:
+    radial-gradient(circle at top, rgba(255, 251, 246, 0.96), rgba(245, 238, 228, 0.96)),
+    #f5eee4;
+  font-family: "Manrope", system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.8), transparent 18%),
+    radial-gradient(circle at 82% 12%, rgba(201, 149, 153, 0.08), transparent 16%),
+    radial-gradient(circle at 70% 78%, rgba(138, 155, 133, 0.12), transparent 20%),
+    linear-gradient(180deg, #fbf7f1 0%, #f5eee4 55%, #eee5da 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(201, 149, 153, 0.25);
+}
+
+.paper-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(100, 82, 71, 0.06) 0.7px, transparent 0.7px),
+    radial-gradient(rgba(255, 255, 255, 0.45) 0.7px, transparent 0.7px);
+  background-position: 0 0, 12px 12px;
+  background-size: 24px 24px;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

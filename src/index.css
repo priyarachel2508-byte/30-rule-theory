@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #3d342f;
+  background:
+    radial-gradient(circle at top, rgba(255, 251, 246, 0.96), rgba(245, 238, 228, 0.96)),
+    #f5eee4;
+  font-family: "Manrope", system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.8), transparent 18%),
+    radial-gradient(circle at 82% 12%, rgba(201, 149, 153, 0.08), transparent 16%),
+    radial-gradient(circle at 70% 78%, rgba(138, 155, 133, 0.12), transparent 20%),
+    linear-gradient(180deg, #fbf7f1 0%, #f5eee4 55%, #eee5da 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(201, 149, 153, 0.25);
+}
+
+.paper-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(100, 82, 71, 0.06) 0.7px, transparent 0.7px),
+    radial-gradient(rgba(255, 255, 255, 0.45) 0.7px, transparent 0.7px);
+  background-position: 0 0, 12px 12px;
+  background-size: 24px 24px;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Two Containers Game ── */
+@keyframes tcBubbleIn {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  55%  { opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+@keyframes tcBubbleDrift {
+  0%,  100% { transform: translate(-50%, -50%) scale(1); }
+  25%  { transform: translate(calc(-50% + var(--dx1, 5px)), calc(-50% + var(--dy1, -7px))) scale(1.025); }
+  50%  { transform: translate(calc(-50% + var(--dx2, -4px)), calc(-50% + var(--dy2, 6px))) scale(0.975); }
+  75%  { transform: translate(calc(-50% + var(--dx3, 6px)), calc(-50% + var(--dy3, 4px))) scale(1.015); }
+}
+@keyframes tcBubblePop {
+  0%   { transform: scale(0);    opacity: 0; }
+  20%  { transform: scale(1.06); opacity: 1; }
+  55%  { transform: scale(1);    opacity: 1; }
+  75%  { transform: scale(1.18); opacity: 0.6; }
+  100% { transform: scale(1.5);  opacity: 0; }
+}
+@keyframes tcPopRing {
+  0%   { transform: scale(0.8); opacity: 0; }
+  40%  { transform: scale(1);   opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes tcCardFloat {
+  0%,  100% { transform: translateY(0) rotate(0deg); }
+  33%  { transform: translateY(-7px) rotate(0.6deg); }
+  66%  { transform: translateY(-3px) rotate(-0.4deg); }
+}
+@keyframes tcFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes tcFloaterIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes tcFloaterBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+@keyframes tcBreathe {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.88; }
+}
+
+.tc-bubble-0 {
+  background: oklch(84% 0.1 42 / 0.78);
+  border: 1.5px solid oklch(68% 0.1 42 / 0.45);
+  color: oklch(26% 0.07 45);
+}
+.tc-bubble-1 {
+  background: oklch(81% 0.11 55 / 0.74);
+  border: 1.5px solid oklch(65% 0.11 55 / 0.42);
+  color: oklch(26% 0.07 52);
+}
+.tc-bubble-2 {
+  background: oklch(85% 0.09 32 / 0.7);
+  border: 1.5px solid oklch(69% 0.1 30 / 0.4);
+  color: oklch(28% 0.07 32);
+}
+.tc-bubble-3 {
+  background: oklch(82% 0.1 62 / 0.75);
+  border: 1.5px solid oklch(66% 0.1 62 / 0.42);
+  color: oklch(28% 0.06 60);
+}
