@@ -25,6 +25,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Build Mindful Reflections
+        working-directory: mindful-reflections
+        run: npm ci && npm run build
+      - name: Nest Mindful Reflections into dist
+        run: mv mindful-reflections/dist dist/mindful-reflections
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
