@@ -4,6 +4,7 @@ import SplashScreen from './screens/SplashScreen'
 import HomeScreen from './screens/HomeScreen'
 import CardDetailScreen from './screens/CardDetailScreen'
 import ArticleScreen from './screens/ArticleScreen'
+import DecisionGameScreen from './screens/DecisionGameScreen'
 
 const slide = (dir = 1) => ({
   initial: { opacity: 0, x: 24 * dir },
@@ -35,6 +36,7 @@ export default function App() {
                 setActiveTab={setActiveTab}
                 onOpenCard={() => setScreen('card')}
                 onOpenArticle={() => setScreen('article')}
+                onOpenGame={() => setScreen('game')}
               />
             </motion.div>
           )}
@@ -46,6 +48,11 @@ export default function App() {
           {screen === 'article' && (
             <motion.div key="article" {...slide(1)} className="absolute inset-0">
               <ArticleScreen onBack={() => setScreen('home')} />
+            </motion.div>
+          )}
+          {screen === 'game' && (
+            <motion.div key="game" {...slide(1)} className="absolute inset-0">
+              <DecisionGameScreen onBack={() => setScreen('home')} />
             </motion.div>
           )}
         </AnimatePresence>
