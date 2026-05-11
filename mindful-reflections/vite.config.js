@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/30-rule-theory/mindful-reflections/',
   server: { port: 5174 },
 })
