@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"REMINDER: If you made any changes this session, update these files before finishing:\\n  - README.md (30 Rule Theory main app)\\n  - mindful-reflections/README.md (Mindful Reflections app)\\n  - PROJECT_STATUS.md (master status sheet + session log)\\nAlso bump the Last updated date and add a row to the Session Log in PROJECT_STATUS.md.\"}'",
+            "statusMessage": "Checking docs reminder..."
+          }
+        ]
+      }
+    ]
+  }
+}
