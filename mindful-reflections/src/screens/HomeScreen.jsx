@@ -52,9 +52,9 @@ function DailyReflectionCard({ onOpen }) {
   )
 }
 
-function ExploreItem({ icon: Icon, label, color, bgColor }) {
+function ExploreItem({ icon: Icon, label, color, bgColor, onClick }) {
   return (
-    <div className="flex flex-col items-center gap-2">
+    <button onClick={onClick} className="flex flex-col items-center gap-2">
       <div
         className="flex h-14 w-14 items-center justify-center rounded-full"
         style={{ background: bgColor }}
@@ -76,7 +76,7 @@ function ExploreItem({ icon: Icon, label, color, bgColor }) {
       <span className="text-center font-sans text-[11px] text-muted leading-tight" style={{ maxWidth: 58 }}>
         {label}
       </span>
-    </div>
+    </button>
   )
 }
 
@@ -133,7 +133,7 @@ function ContinueReadingCard({ onOpen }) {
   )
 }
 
-export default function HomeScreen({ activeTab, setActiveTab, onOpenCard, onOpenArticle }) {
+export default function HomeScreen({ activeTab, setActiveTab, onOpenCard, onOpenArticle, onOpenGame }) {
   return (
     <div className="flex h-full flex-col bg-cream">
       {/* Status bar */}
@@ -202,6 +202,7 @@ export default function HomeScreen({ activeTab, setActiveTab, onOpenCard, onOpen
               label="Reflections"
               color="#8a7868"
               bgColor="#ece4d8"
+              onClick={onOpenGame}
             />
             <ExploreItem
               icon={BookOpen}
